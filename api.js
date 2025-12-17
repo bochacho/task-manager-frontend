@@ -112,3 +112,5 @@ class API {
     });
   }
 }
+
+const api = new API(API_URL);

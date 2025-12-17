@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Test</title>
+</head>
+<body>
+  <h1>Open Console (F12) to see results</h1>
+  
+  <script src="api.js"></script>
+  <script>
+    // Test the API
+    async function testAPI() {
+      try {
+        console.log('Testing registration...');
+        const result = await api.login(
+          'test@example.com',
+          'password123'
+        );
+        console.log('Login successful:', result);
+        
+        // Save token
+        localStorage.setItem('token', result.data.token);
+        
+        console.log('Testing getTasks...');
+        const tasks = await api.getTasks();
+        console.log('Tasks:', tasks);
+        
+      } catch (error) {
+        console.error('Test failed:', error.message);
+      }
+    }
+    
+    testAPI();
+  </script>
+</body>
+</html>
