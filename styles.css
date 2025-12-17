@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ef9f52 0%, #eb672a 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -54,12 +54,12 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #ef9f52;
 }
 
 button {
   padding: 12px;
-  background: #667eea;
+  background: #ef9f52;
   color: white;
   border: none;
   border-radius: 8px;
@@ -69,7 +69,7 @@ button {
 }
 
 button:hover {
-  background: #5568d3;
+  background: #eb672a;
 }
 
 /* Links */
@@ -80,7 +80,7 @@ p {
 }
 
 a {
-  color: #667eea;
+  color: #ef9f52;
   text-decoration: none;
   font-weight: 600;
 }
