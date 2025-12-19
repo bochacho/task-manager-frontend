@@ -62,7 +62,7 @@ class API {
     }
 
     async login(email, password) {
-        return this.request('api/auth/login', {
+        return this.request('/api/auth/login', {
             method: 'POST',
             body : JSON.stringify({email, password}),
             needsAuth : false
