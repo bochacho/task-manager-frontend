@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
+function initDashboard(){
+    displayUserName();
+    setupEventListeners();
+}
 
 function displayUserName() {
     const user = JSON.parse( localStorage.getItem('user') );
@@ -77,7 +81,7 @@ function loadTasks() {
 function handleLogout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }
 
 // Show message to user
