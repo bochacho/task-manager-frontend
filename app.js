@@ -21,9 +21,6 @@ function displayUserName() {
 }
 
 function setupEventListeners() {
-  // 2. Add submit listener to 'create-task-form' → call handleCreateTask
-  // 3. Add change listeners to the three filter dropdowns → call loadTasks
-
     const logout_btn = document.getElementById('logout-btn');
     const create_task = document.getElementById('create-task-form');
 
@@ -75,7 +72,22 @@ function setupEventListeners() {
 }
 
 function loadTasks() {
+    const statusFilter = document.getElementById('filter-status').value;
+    const priorityFilter = document.getElementById('filter-priority').value;
+    const sortFilter = document.getElementById('filter-sort').value;
 
+    const filters = {
+        status: statusFilter,
+        priority: priorityFilter,
+        sort: sortFilter
+    };
+
+    // Remove empty values
+    Object.keys(filters).forEach(key => {
+        if (!filters[key]) {
+            delete filters[key];
+        }
+    });
 }
 
 function handleLogout() {

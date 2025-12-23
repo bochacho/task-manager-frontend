@@ -197,3 +197,102 @@ select:focus {
 .filters select {
   flex: 1;  /* Each dropdown takes equal space */
 }
+
+/* Tasks Container */
+#tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual Task Card */
+.task-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: border-color 0.3s;
+}
+
+.task-card:hover {
+  border-color: #ef9f52;  /* Your orange color! */
+}
+
+.task-card h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.task-card p {
+  color: #666;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* Task metadata (status, priority badges) */
+.task-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+/* Badges for status and priority */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Status badges */
+.badge-pending { 
+  background: #fef3c7; 
+  color: #92400e; 
+}
+
+.badge-in-progress { 
+  background: #dbeafe; 
+  color: #1e40af; 
+}
+
+.badge-completed { 
+  background: #d1fae5; 
+  color: #065f46; 
+}
+
+/* Priority badges */
+.badge-low { 
+  background: #e5e7eb; 
+  color: #374151; 
+}
+
+.badge-medium { 
+  background: #fed7aa; 
+  color: #9a3412; 
+}
+
+.badge-high { 
+  background: #fecaca; 
+  color: #991b1b; 
+}
+
+/* Task action buttons */
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.btn-danger {
+  background: #ef4444;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
