@@ -1,115 +1,270 @@
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
-
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ef9f52 0%, #eb672a 100%);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #ef9f52 0%, #eb672a 100%);
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
 }
-
 .container {
-  width: 100%;
-  max-width: 400px;
+display: flex;
+justify-content:center;
+width: 100%;
 }
-
 .auth-card {
-  background: white;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+background: white;
+border-radius: 12px;
+padding: 40px;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
-
 .auth-card h1 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
+text-align: center;
+margin-bottom: 30px;
+color: #333;
 }
-
 .auth-card h2 {
-  margin-bottom: 20px;
-  color: #555;
+margin-bottom: 20px;
+color: #555;
 }
-
 /* Forms */
 form {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+input {
+padding: 12px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 14px;
+background-color: white;
+}
+input:focus {
+outline: none;
+border-color: #ef9f52;
+}
+button {
+padding: 12px;
+background: #ef9f52;
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+}
+button:hover {
+background: #eb672a;
+}
+/* Links */
+p {
+text-align: center;
+margin-top: 20px;
+color: #666;
+}
+a {
+color: #ef9f52;
+text-decoration: none;
+font-weight: 600;
+}
+a:hover {
+text-decoration: underline;
+}
+/* Messages */
+#message {
+margin-top: 20px;
+padding: 12px;
+border-radius: 8px;
+display: none;
+text-align: center;
+}
+#message.show {
+display: block;
+}
+#message.error {
+background: #fee;
+color: #c33;
+border: 1px solid #fcc;
+}
+#message.success {
+background: #efe;
+color: #3c3;
+border: 1px solid #cfc;
+}
+.dashboard {
+display: flex;
+flex-direction: column;
+flex: 1;
+background : white;
+border-radius: 12px;
+padding: 30px;
+box-shadow: 0 10px 40px rgba(0,0,0, 0.2);
+max-width : 900px;
+margin : 0 auto;
+}
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;  /* ← Title left, user info right */
+  align-items: center;  /* ← Vertically centered */
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.user-info {
+display: flex;
+flex : 1;
+align-items: center;
+gap: 15px;
+}
+.user-info span {
+color: #666;
+font-weight: 500;
+}
+.task-form {
+padding: 20px;
+background-color: #f9f9f9;
+border-radius: 8px;
+margin-bottom: 30px;
+}
+textarea {
+padding: 12px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 14px;
+resize: vertical;
+background-color: white;
+}
+textarea:focus {
+outline: none;
+border-color: #ef9f52;
+}
+select {
+padding: 12px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 14px;
+background-color: white;
+}
+select:focus {
+outline: none;
+border-color: #ef9f52;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filters select {
+  flex: 1;  /* Each dropdown takes equal space */
+}
+
+/* Tasks Container */
+#tasks-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-input {
-  padding: 12px;
-  border: 2px solid #ddd;
+/* Individual Task Card */
+.task-card {
+  background: white;
+  border: 2px solid #e0e0e0;
   border-radius: 8px;
+  padding: 20px;
+  transition: border-color 0.3s;
+}
+
+.task-card:hover {
+  border-color: #ef9f52;  /* Your orange color! */
+}
+
+.task-card h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.task-card p {
+  color: #666;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* Task metadata (status, priority badges) */
+.task-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+/* Badges for status and priority */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Status badges */
+.badge-pending { 
+  background: #fef3c7; 
+  color: #92400e; 
+}
+
+.badge-in-progress { 
+  background: #dbeafe; 
+  color: #1e40af; 
+}
+
+.badge-completed { 
+  background: #d1fae5; 
+  color: #065f46; 
+}
+
+/* Priority badges */
+.badge-low { 
+  background: #e5e7eb; 
+  color: #374151; 
+}
+
+.badge-medium { 
+  background: #fed7aa; 
+  color: #9a3412; 
+}
+
+.badge-high { 
+  background: #fecaca; 
+  color: #991b1b; 
+}
+
+/* Task action buttons */
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-small {
+  padding: 8px 16px;
   font-size: 14px;
 }
 
-input:focus {
-  outline: none;
-  border-color: #ef9f52;
+.btn-danger {
+  background: #ef4444;
 }
 
-button {
-  padding: 12px;
-  background: #ef9f52;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #eb672a;
-}
-
-/* Links */
-p {
-  text-align: center;
-  margin-top: 20px;
-  color: #666;
-}
-
-a {
-  color: #ef9f52;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Messages */
-#message {
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 8px;
-  display: none;
-  text-align: center;
-}
-
-#message.show {
-  display: block;
-}
-
-#message.error {
-  background: #fee;
-  color: #c33;
-  border: 1px solid #fcc;
-}
-
-#message.success {
-  background: #efe;
-  color: #3c3;
-  border: 1px solid #cfc;
+.btn-danger:hover {
+  background: #dc2626;
 }
