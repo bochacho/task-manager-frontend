@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'index.html';
         return;
    }
-   initDashboard();
+   setupEventListeners()
+   loadTasks();
 })
 
 
@@ -71,24 +72,61 @@ function setupEventListeners() {
     });
 }
 
-function loadTasks() {
+async function loadTasks() {
+  try {
     const statusFilter = document.getElementById('filter-status').value;
     const priorityFilter = document.getElementById('filter-priority').value;
     const sortFilter = document.getElementById('filter-sort').value;
-
+    
     const filters = {
-        status: statusFilter,
-        priority: priorityFilter,
-        sort: sortFilter
+      status: statusFilter,
+      priority: priorityFilter,
+      sort: sortFilter
     };
-
-    // Remove empty values
+    
     Object.keys(filters).forEach(key => {
-        if (!filters[key]) {
-            delete filters[key];
-        }
+      if (!filters[key]) {
+        delete filters[key];
+      }
     });
+    
+    const response = await api.getTasks(filters);  // ← Pass filters here!
+    const tasks = response.data;
+    displayTasks(tasks);
+    
+  } catch (error) {
+    showMessage('Failed to load tasks: ' + error.message, 'error');
+    if (error.message.includes('Unauthorized')) {
+      setTimeout(() => handleLogout(), 2000);
+    }
+  }
 }
+
+
+function displayTasks(tasks) {
+    const container = document.getElementById('tasks-container');
+    
+    if (tasks.length === 0) {
+        container.innerHTML = '<p>No tasks found. Create one above!</p>';
+        return;
+    }
+    
+    container.innerHTML = tasks.map(task => `
+        <div class="task-card" data-id="${task._id}">
+        <h4>${task.title}</h4>
+        ${task.description ? `<p>${task.description}</p>` : ''}
+        <div class="task-meta">
+            <span class="badge badge-${task.status}">${task.status}</span>
+            <span class="badge badge-${task.priority}">${task.priority}</span>
+        </div>
+        <div class="task-actions">
+            <button class="btn-small" onclick="editTask('${task._id}')">Edit</button>
+            <button class="btn-small btn-danger" onclick="deleteTask('${task._id}')">Delete</button>
+        </div>
+        </div>
+    `).join('');
+}
+
 
 function handleLogout() {
     localStorage.removeItem('token');

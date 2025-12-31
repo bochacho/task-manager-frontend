@@ -1,133 +1,114 @@
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
-
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ef9f52 0%, #eb672a 100%);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #ef9f52 0%, #eb672a 100%);
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
 }
-
 .container {
-  display: flex;
-  justify-content:center;
-  width: 100%;
+display: flex;
+justify-content:center;
+width: 100%;
 }
-
 .auth-card {
-  background: white;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+background: white;
+border-radius: 12px;
+padding: 40px;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
-
 .auth-card h1 {
   text-align: center;
   margin-bottom: 30px;
   color: #333;
 }
-
 .auth-card h2 {
   margin-bottom: 20px;
   color: #555;
 }
-
 /* Forms */
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
 input {
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  background-color: white;
+padding: 12px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 14px;
+background-color: white;
 }
-
 input:focus {
-  outline: none;
-  border-color: #ef9f52;
+outline: none;
+border-color: #ef9f52;
 }
-
 button {
-  padding: 12px;
-  background: #ef9f52;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+padding: 12px;
+background: #ef9f52;
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
 }
-
 button:hover {
-  background: #eb672a;
+background: #eb672a;
 }
-
 /* Links */
 p {
-  text-align: center;
-  margin-top: 20px;
-  color: #666;
+text-align: center;
+margin-top: 20px;
+color: #666;
 }
-
 a {
-  color: #ef9f52;
-  text-decoration: none;
-  font-weight: 600;
+color: #ef9f52;
+text-decoration: none;
+font-weight: 600;
 }
-
 a:hover {
-  text-decoration: underline;
+text-decoration: underline;
 }
-
 /* Messages */
 #message {
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 8px;
-  display: none;
-  text-align: center;
+margin-top: 20px;
+padding: 12px;
+border-radius: 8px;
+display: none;
+text-align: center;
 }
-
 #message.show {
-  display: block;
+display: block;
 }
-
 #message.error {
-  background: #fee;
-  color: #c33;
-  border: 1px solid #fcc;
+background: #fee;
+color: #c33;
+border: 1px solid #fcc;
 }
-
 #message.success {
-  background: #efe;
-  color: #3c3;
-  border: 1px solid #cfc;
+background: #efe;
+color: #3c3;
+border: 1px solid #cfc;
 }
-
 .dashboard {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background : white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 10px 40px rgba(0,0,0, 0.2);
-  max-width : 900px;
-  margin : 0 auto;
+display: flex;
+flex-direction: column;
+flex: 1;
+background : white;
+border-radius: 12px;
+padding: 30px;
+box-shadow: 0 10px 40px rgba(0,0,0, 0.2);
+max-width : 900px;
+margin : 0 auto;
 }
-
 /* Header */
 .header {
   display: flex;
@@ -139,55 +120,46 @@ a:hover {
 }
 
 .user-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+display: flex;
+flex : 1;
+align-items: center;
+gap: 15px;
 }
-
 .user-info span {
-  color: #666;
-  font-weight: 500;
+color: #666;
+font-weight: 500;
 }
-
 .task-form {
-  display : flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  margin-bottom: 30px;
-}
-.task-form h3 {
-  justify-content: center;
+padding: 20px;
+background-color: #f9f9f9;
+border-radius: 8px;
+margin-bottom: 30px;
 }
 textarea {
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  resize: vertical;
-  background-color: white;
+padding: 12px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 14px;
+resize: vertical;
+background-color: white;
 }
-
 textarea:focus {
-  outline: none;
-  border-color: #ef9f52;
+outline: none;
+border-color: #ef9f52;
 }
-
 select {
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  background-color: white;
+padding: 12px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 14px;
+background-color: white;
 }
-
 select:focus {
-  outline: none;
-  border-color: #ef9f52;
+outline: none;
+border-color: #ef9f52;
 }
 
+/* Filters */
 .filters {
   display: flex;
   gap: 15px;
