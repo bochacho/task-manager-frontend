@@ -138,10 +138,35 @@ function handleLogout() {
 function showMessage(text, type) {
   const messageDiv = document.getElementById('message');
   messageDiv.textContent = text;
-  messageDiv.className = `show ${type}`;
-  
+  messageDiv.className = `show ${type}`;  // Adds 'show' and 'success'/'error'
+
   // Auto-hide after 3 seconds
   setTimeout(() => {
     messageDiv.className = '';
   }, 3000);
+}
+
+function addTaskToDOM(task) {
+  const container = document.getElementById('tasks-container');
+
+  const taskHTML = `
+      <div class="task-card" data-id="${task._id}">
+        <h4>${task.title}</h4>
+        ${task.description ? `<p>${task.description}</p>` : ''}
+        <div class="task-meta">
+            <span class="badge badge-${task.status}">${task.status}</span>
+            <span class="badge badge-${task.priority}">${task.priority}</span>
+        </div>
+        <div class="task-actions">
+            <button class="btn-small" onclick="editTask('${task._id}')">Edit</button>
+            <button class="btn-small btn-danger" onclick="deleteTask('${task._id}')">Delete</button>
+        </div>
+      </div>
+    `
+  if (container.innerHTML.includes('No tasks found')) {
+    container.innerHTML = taskHTML
+    return;
+  }
+  
+  container.insertAdjacentHTML('beforebegin', taskHTML)
 }
