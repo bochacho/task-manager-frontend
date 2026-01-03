@@ -134,18 +134,15 @@ function handleLogout() {
     window.location.href = 'login.html';
 }
 
-// Show message to user
 function showMessage(text, type) {
   const messageDiv = document.getElementById('message');
   messageDiv.textContent = text;
-  messageDiv.className = `show ${type}`;  // Adds 'show' and 'success'/'error'
-
-  // Auto-hide after 3 seconds
+  messageDiv.className = `show ${type}`;
+  
   setTimeout(() => {
     messageDiv.className = '';
   }, 3000);
 }
-
 function addTaskToDOM(task) {
   const container = document.getElementById('tasks-container');
 
@@ -168,5 +165,28 @@ function addTaskToDOM(task) {
     return;
   }
   
-  container.insertAdjacentHTML('beforebegin', taskHTML)
+  container.insertAdjacentHTML('afterbegin', taskHTML)
+}
+
+async function deleteTask(taskId) {
+  if (!confirm('Are you sure you want to delete this task?')) {
+    return;
+  }
+  
+  try {
+    await api.deleteTask(taskId);
+    
+    showMessage("Task deleted successfully", "success")
+    
+    const taskCard = document.querySelector(`[data-id="${taskId}"]`);
+    taskCard.remove();
+
+    const remainingTasks = document.querySelectorAll('.task-card');
+    if (remainingTasks.length === 0) {
+        const container = document.getElementById('tasks-container');
+        container.innerHTML = '<p>No tasks found. Create one above!</p>';
+    }
+  } catch (error) {
+    showMessage(error.message, "error")
+  }
 }
