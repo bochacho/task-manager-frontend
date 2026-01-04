@@ -190,3 +190,7 @@ async function deleteTask(taskId) {
     showMessage(error.message, "error")
   }
 }
+
+function editTask(task){
+  
+}
